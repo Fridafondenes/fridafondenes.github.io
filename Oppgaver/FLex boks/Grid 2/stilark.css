@@ -1,0 +1,31 @@
+#hoved{
+    width: 1350px;
+    height: 750px;
+    border-radius: 25px;
+    display: grid;
+    gap: 15px;
+    background-color: #555555;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+    " vt vt vt vt vt vt mt mt ht ht "
+    " vt vt vt vt vt vt mt mt ht ht "
+    " vb vb vb vb vb vb hb hb hb hb ";
+}
+
+
+#hoved > div {
+    background-color: #232928;
+    margin: 30px;
+    border: 3px solid rgb(207, 172, 132);
+    border-radius: 25px
+  }
+
+
+.mittentopp { grid-area: mt; }
+.høyretopp { grid-area: ht; }
+.høyrebunn { grid-area: hb; }
+.venstretopp { grid-area: vt; }
+.venstrebunn { grid-area: vb; }
+
+

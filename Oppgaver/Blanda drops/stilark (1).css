@@ -1,0 +1,32 @@
+p{
+    margin-left: 25px;
+}
+
+mark {
+    background-color: yellow;
+    color: gray;
+}
+
+div h1 {
+    color: red;
+}
+
+.sitater {
+    background-color: rgb(186, 186, 186) ;
+}
+
+
+
+#boks {
+    height: 600px;
+    width: 600px;
+    background-color: rgb(235, 235, 235);
+    padding: 2em;
+    border: 2px solid black;
+}
+
+p:nth-child(odd) {
+    background-color: rgb(255, 127, 127);
+}
+
+/*.. */

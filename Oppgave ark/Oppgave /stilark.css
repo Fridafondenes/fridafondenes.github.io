@@ -1,0 +1,25 @@
+body {
+    background-color: rgba(90, 90, 90, 0.554);
+}
+#hoved {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    border: rgba(0, 0, 0, 0.554);
+
+
+    background-color: #ffffffae;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+    " v m h "
+    " v m h "
+    " v m h ";
+    
+}
+
+.venstre {grid-area: v;}
+.mitten {grid-area: m;}
+.høyre {grid-area: h;}
+
+

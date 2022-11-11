@@ -1,0 +1,151 @@
+*{
+	list-style: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+
+html, body, .wrapper { height: 100%; }
+
+body{
+	background: #FCD7AD;
+}
+
+h1{
+    margin: 45px;
+    color: #5296A5;
+}
+
+p{
+    margin: 50px;
+}
+
+.wrapper .sidebar{
+	background: #ca9760;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 225px;
+	height: 100%;
+	padding: 20px 0;
+	transition: all 0.5s ease;
+}
+.wrapper .sidebar .profile{
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.wrapper .sidebar .profile img{
+	display: block;
+	width: 100px;
+	height: 100px;
+    border-radius: 50%;
+	margin: 0 auto;
+}
+
+.wrapper .sidebar .profile h3{
+	color: #FCD7AD;
+	margin: 10px 0 5px;
+}
+.wrapper .sidebar .profile p{
+	color: #FCD7AD;
+	font-size: 14px;
+}
+
+/*meny icon*/
+.wrapper .sidebar ul li a{
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid #000000;
+    color: #5296A5;
+    font-size: 16px;
+    position: relative;
+}
+
+.wrapper .sidebar.profile ul li a .icon{
+    color: #5296A5;
+    width: 30px;
+    display: inline-block;
+}
+
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+    color: #8bc6e1;
+
+    background:white;
+    border-right: 2px solid rgb(133, 175, 199);
+}
+
+.wrapper .sidebar ul li a:hover .icon,
+.wrapper .sidebar ul li a.active .icon{
+    color: #8fc2d9;
+}
+
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before{
+    display: block;
+}
+
+.wrapper .section{
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
+}
+
+.wrapper .section .top_navbar{
+    background: #5296A5;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+
+}
+
+.wrapper .section .top_navbar .hamburger a{
+    font-size: 28px;
+    color: #f4fbff;
+}
+
+.wrapper .section .top_navbar .hamburger a:hover{
+    color: #5296A5;
+}
+
+body.active .wrapper .sidebar{
+    left: -225px;
+}
+
+body.active .wrapper .section{
+    margin-left: 0;
+    width: 100%;
+}
+
+.toppvenstre { grid-area: tv;}
+.bunnvenstre { grid-area: bv;}
+.hoyre { grid-area: hh;}
+
+#hoved{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 15px;
+    background-color: #555555;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows:repeat(3, 1fr);
+    grid-template-areas:
+    "tv tv tv tv tv hh hh"
+    "bv bv bv bv bv hh hh"
+    "bv bv bv bv bv hh hh";
+}
+
+#hoved > div {
+    background-color: #232928;
+    /* margin: 30px; */
+    border: 3px solid rgb(207, 172, 132);
+    border-radius: 25px;
+    display: grid;
+  }
