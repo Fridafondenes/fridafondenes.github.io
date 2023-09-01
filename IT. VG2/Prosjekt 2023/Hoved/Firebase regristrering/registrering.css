@@ -1,0 +1,93 @@
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(../Bilder/gradiant2.jpg);
+
+}
+
+#hoved{
+    /* width: ;
+    height: 100%; */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 
+    " t t t t t t "
+    " b b b b b b "
+    " b b b b b b "
+    " b b b b b b "
+    " b b b b b b "
+    " b b b b b b ";
+}
+
+.topp { 
+    grid-area: t; 
+    background-color: #ffaa65;
+}
+
+.bunn{ 
+    grid-area: b; 
+}
+
+h1 {
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 3.5em;
+    text-align: right;
+    padding-right: 20px;
+ 
+    color: #1fc3ff
+}
+ 
+h2 {
+ 
+   font-family: 'Inter';
+   font-style: italic;
+   font-size: 2em;
+   text-align: right;
+   padding-right: 20px;
+ 
+   color: #1fc3ff;
+}
+
+
+  
+form {
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+}
+  
+label {
+    margin-top: 1em;
+}
+  
+input {
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 0.5em;
+    border: 0.1em solid #ccc;
+    width: 30em;
+}
+  
+button {
+    padding: 1em;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 0.5em;
+    width: 30rem;
+    margin-top: 2em;
+    cursor: pointer;
+}
+  
+button:hover {
+    background-color: #357ae8;
+}
+  

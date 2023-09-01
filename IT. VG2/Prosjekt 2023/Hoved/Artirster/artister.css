@@ -1,0 +1,141 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-left: 1em;
+    background-image: url(../Bilder/gradiant2.jpg);
+
+}
+
+.ArtistBoks{
+    /* Rectangle 3 */
+    
+    align-items: center;
+    background: #ffaa65;
+    border: 1px solid #ffaa65;
+    border-radius: 100px;
+    
+}
+
+#Artister{
+    /* Artister */ 
+    /* position: absolute;  */
+    font-family: 'Inter'; 
+    font-style: italic; 
+    font-size: 5em;  
+    color: #FF7BAB;
+    text-align: center;
+
+}
+
+.artist1{
+    /* SZA */
+   
+    font-family: 'Inter';
+    font-style: italic;
+    
+    font-size: 2.5em;
+    text-align: center;
+
+    color:#000000;
+}
+
+.artist2{
+    /* UNNERGRUNNEN */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+
+}
+
+.artist3{
+    /* Frank Ocean */
+
+
+    /* position: absolute; */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 1em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+
+}
+
+.artist4{
+    /* Karpe */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+.artist5{
+    /* Broiler */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 1em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+.artist6{
+    /* Tyler, The Creator */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 1.5em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+.artist7{
+    /* Kendrick Lamar */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+.artist8{
+    /* J. Cole */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 1em;
+
+    /* identical to box height */
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+a:hover {
+    font-size: smaller;
+    transition: 0.2s;
+    color: #FF7BAB;
+
+}

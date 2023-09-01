@@ -1,0 +1,278 @@
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(Bilder/gradiant2.jpg);
+
+}
+
+#hoved{
+    /* width: ;
+    height: 100%; */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 
+    " tv tv tv th th th"
+    " m  m  m  m  m  m "
+    " m  m  m  m  m  m "
+    " m  m  m  m  m  m "
+    " m  m  m  m  m  m "
+    " b  b  b  b  b  b ";
+}
+
+.toppvenstre { 
+    grid-area: tv; 
+    background-color: #ffaa65;
+}
+
+.topphoyre{ 
+    grid-area: th; 
+    background-color: #ffaa65;
+}
+
+.center { 
+    grid-area: m;
+    margin: 15px;
+}
+
+.bunn { 
+    grid-area: b;
+    margin: 15px;
+}
+
+
+
+body {
+    font-family: "Lato", sans-serif; 
+}
+  
+/* span{
+    align-items: center;
+} */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:#1fc3ff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-radius: 70px;
+}
+  
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color:#FFA51F;
+    display: block;
+    transition: 0.3s;
+}
+  
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+  
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+span{
+    color: #1fc3ff;
+}
+
+/* span:hover{
+    font-size: 8em;
+} */
+
+
+
+h1 {
+     /* SOMMER FESTIVAL-EN 19-29. juni 2023 */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 3.5em;
+    text-align: right;
+    padding-right: 20px;
+
+    color: #1fc3ff
+}
+
+h2 {
+    /* SOMMER FESTIVAL-EN 19-29. juni 2023 */
+
+   font-family: 'Inter';
+   font-style: italic;
+   font-size: 2em;
+   text-align: right;
+   padding-right: 20px;
+
+   color: #1fc3ff;
+}
+
+#biletter{
+    /* Kjøp billett er her */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 2em;
+    text-align: left;
+
+    color: #FF7BAB;
+    
+
+    /* Rectangle 4 */
+    
+
+    background: #ffaa65;
+    padding-left: 1em;
+    border: 0px;
+    border-radius: 90px;
+    padding: 30px;
+   
+}
+
+.ArtistBoks{
+    /* Rectangle 3 */
+    
+    padding-left: 1em;
+    background: #ffaa65;
+    border: 1px solid #ffaa65;
+    border-radius: 150px;
+    
+}
+
+#Artister{
+    /* Artister */ 
+    /* position: absolute;  */
+    font-family: 'Inter'; 
+    font-style: italic; 
+    font-size: 5em;  
+    color: #FF7BAB;
+    text-align: center;
+
+}
+
+.artist1{
+    /* SZA */
+   
+    font-family: 'Inter';
+    font-style: italic;
+    
+    font-size: 2.5em;
+    text-align: center;
+
+    color:#000000;
+}
+
+.artist2{
+    /* UNNERGRUNNEN */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+
+}
+
+.artist3{
+    /* Frank Ocean */
+
+
+    /* position: absolute; */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 1em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+
+}
+
+.artist4{
+    /* Karpe */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+.artist5{
+    /* Broiler */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 1em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+.artist6{
+    /* Tyler, The Creator */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 1.5em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+.artist7{
+    /* Kendrick Lamar */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+.artist8{
+    /* J. Cole */
+
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 1em;
+
+    /* identical to box height */
+    text-align: center;
+
+    color: #000000;
+    font-variation-settings: 'slnt' -10;
+}
+
+a:hover {
+    font-size: smaller;
+    transition: 0.2s;
+    color: #FF7BAB;
+
+}
+

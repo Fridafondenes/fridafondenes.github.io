@@ -1,0 +1,60 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(../Bilder/gradiant2.jpg);
+
+}
+
+#hoved{
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 
+    " t t t t t t"
+    " v v v h h h"
+    " v v v h h h"
+    " v v v h h h"
+    " v v v h h h"
+    " v v v h h h";
+    
+    
+}
+
+.topp { 
+    grid-area: t; 
+    background-color: #ffaa65;
+}
+
+.venstre{ 
+    grid-area: v;
+    background-color: #1fc3ff; 
+}
+
+
+.hoyre{ 
+    grid-area: h;
+}
+
+h1 {
+    /* SOMMER FESTIVAL-EN 19-29. juni 2023 */
+
+   font-family: 'Inter';
+   font-style: italic;
+   font-size: 3.5em;
+   text-align: right;
+   padding-right: 20px;
+
+   color: #1fc3ff
+}
+
+p{
+    font-size: 1.5em;
+
+    display: flex;
+    text-align: center
+    ;
+}
+

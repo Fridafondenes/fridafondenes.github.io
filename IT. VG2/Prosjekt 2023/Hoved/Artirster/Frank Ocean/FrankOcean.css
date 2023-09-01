@@ -1,0 +1,111 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(../../Bilder/gradiant2.jpg);
+}
+
+#hoved{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    grid-template-areas: 
+    " t  t  t  t  t  t "
+    " m1 m1 m1 m1 m1 m1 "
+    " m1 m1 m1 m1 m1 m1 "
+    " m1 m1 m1 m1 m1 m1 "
+    " m1 m1 m1 m1 m1 m1 "
+    " m2 m2 m2 m2 m2 m2 "
+    " m2 m2 m2 m2 m2 m2 "
+    " m2 m2 m2 m2 m2 m2 "
+    " m2 m2 m2 m2 m2 m2 "
+    " m3 m3 m3 m3 m3 m3 "
+    " m3 m3 m3 m3 m3 m3 "
+    " m3 m3 m3 m3 m3 m3 "
+    " m3 m3 m3 m3 m3 m3 "
+    " b  b  b  b  b  b  "
+    " b  b  b  b  b  b  "
+    ;
+}
+
+.topp { 
+    grid-area: t;
+    background-color: #ffaa65;
+}
+
+.mitten1 { 
+    grid-area: m1;
+}
+
+.mitten2 { 
+    grid-area: m2;
+}
+
+.mitten3 { 
+    grid-area: m3;
+}
+
+.bunn { 
+    grid-area: b;
+}
+
+h1{
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 3.5em;
+    text-align: right;
+
+    padding-right: 1em;
+
+    color: #1fc3ff;
+
+}
+
+h2{
+    font-family: 'Inter';
+    font-style: italic;
+    font-size: 1.5em;
+    text-align: right;
+
+    color:#1fc3ff;
+    border-color: black;
+    border: 10px;
+}
+
+#utskriftBilde{
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#utskriftAlbumNavn{
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#FF7BAB;
+
+}
+
+#utskriftAlbumBilde{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#utskriftSpotify{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#FF7BAB;
+
+}
+
+
+
+
+
+    
