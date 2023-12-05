@@ -1,0 +1,115 @@
+html, body{
+    margin: 0; padding: 0;
+
+}
+#hoved{
+    /*box-sizing: border-box;*/
+    width: 100%;
+    height: 100%;
+    display: grid;
+    
+    background-color: #ffffff;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-areas:
+    "t t t t"
+    "m m v h"
+    "m m v h"
+    "m m v h"
+    "m m v h"
+    "m m v h"
+    "m m v h"
+    "m m v h"
+    "m m v h"
+    "m m v h"
+    "m m v h"
+    "m m v h"
+    ;
+}
+
+#topp { grid-area: t; }
+.venstre { grid-area: v; }
+.mitten { grid-area: m; }
+.høyre { grid-area: h; }
+/*Avsluttning på grid*/ 
+
+@media screen and (max-width: 700px) {
+    body {
+        background-color: green;
+    }
+    
+    #hoved {
+        grid-template-columns: repeat(2, 1fr);;
+        grid-template-rows: repeat(5,1fr);
+        grid-template-areas:
+        " t t "
+        " v v " 
+        " v v " 
+        " m m "
+        " h h ";
+}
+}
+/*Hvis skjermen blir mindre en 700px vil griden endre seg fra horisontalt til vertikalt*/
+
+#hoved > div {
+    background-color: #fffdfd;
+    /* margin: 30px; */
+    /*border: 1px solid rgb(0, 0, 0);*/
+  }
+
+#hoved > div > img {
+    width: 80%;
+    height: auto;
+}
+/*
+#hoved .topp .flexbox {
+    
+    background-color: rgb(255, 255, 255);
+    flex-direction:flex-start;
+    justify-content:row-reverse;
+}
+    
+
+#hoved .topp .flexbox2 {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content:flex-end;
+}
+*/
+
+#topp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-items: center;
+}
+
+#topp img {
+    width: 20px;
+    
+}
+
+nav {
+    display: flex;
+    gap: 5px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+#logoTekst {
+    display: flex;
+}
+
+.venstre > button{
+    color: black;
+    background-color: greenyellow;
+    height: 50px;
+}
+/*pynt på kanppen*/
+
+
