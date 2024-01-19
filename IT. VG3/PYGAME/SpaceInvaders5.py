@@ -1,13 +1,3 @@
-# Oppgave: Lag et enkelt "Skyt spillet" med Pygame
-
-# Lag et vindu med dimensjoner 800x600 piksler.
-# Lag en spillerfigur som kan beveges horisontalt ved hjelp av piltastene.
-# Legg til fiender som faller nedover skjermen fra toppen.
-# Spilleren skal kunne skyte prosjektiler oppover ved å trykke på mellomromstasten.
-# Hvis spillerens prosjektil treffer en fiende, får spilleren poeng.
-# Hvis en fiende når bunnen av skjermen uten å bli truffet, mister spilleren et liv.
-# Legg til en poengteller og en livsteller i spillet.
-# Spillet skal avslutte når spilleren ikke har flere liv igjen.
 
 import pygame as pg
 from pygame.locals import (K_UP, K_DOWN, K_LEFT, K_RIGHT)
@@ -16,13 +6,15 @@ from random import randint
 import sys
 from pygame.sprite import Sprite, Group
 
-
+pg.init()
 
 # Oppretter et vindu der vi skal "tegne" innholdet vårt
 VINDU_BREDDE = 1100
 VINDU_HOYDE  = 750
 vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 livsteller = 3
+# Legg til dette før hovedloopen
+font = pg.font.Font(None, 36)
 
 
 class Karakter(Sprite):
@@ -39,7 +31,6 @@ class Karakter(Sprite):
   
   def tegn(self, vindu):
     """Metode for å tegne ballen"""
-    #pg.draw.circle(self.vindusobjekt, self.farge, (self.x, self.y), self.radius) 
     img = pg.image.load("spaeship.png")
     img = pg.transform.scale(img,(125,125))
     vindu.blit(img, (self.x,self.y))
@@ -64,7 +55,6 @@ class Romvesen(Sprite):
         self.vindusobjekt = vindusobjekt
   
     def tegn(self, vindu):
-        #pg.draw.circle(self.vindusobjekt, self.farge, (self.x, self.y), self.radius) 
         img = pg.image.load("Romvesen.png")
         img = pg.transform.scale(img,(70,70))
         vindu.blit(img, (self.x,self.y))
@@ -90,15 +80,6 @@ class Romvesen(Sprite):
         # Sjekk om spilleren har mistet alle livene
         if livsteller == 0:
           fortsett = False  # Dette vil avslutte spillet
-   
-    # def flytt(self):
-    #   self.y += self.fart
-    #   if self.y > VINDU_HOYDE:
-    #     self.KarakterLiv - 1
-    #     # Gjenoppstiller romvesenet øverst hvis det går utenfor bunnen
-    #     self.y = -10
-    #     self.x = randint(0, VINDU_BREDDE)
-
 
 
 star_x = []
@@ -114,29 +95,18 @@ for i in range(50):
     star2_y.append(randint(0,VINDU_HOYDE))
 
 
-
 # Lager et Ball-objekt
 karakter = Karakter(400, 600, 5, 20, (255, 69, 0), vindu)
 romvesen = Romvesen(randint(0, VINDU_BREDDE),-10, 5, 20, vindu)
 
-# for i in range(3):
-#   romvesen[i] += 2
-#   if romvesen[i] >= vindu.get_height():
-#     star_y[i] = 0
-#   pg.draw.rect(vindu,(255,255,255), pg.Rect(romvesen[i],romvesen[i], 5, 5,))
-        
-
-  
-
-
 # Gjenta helt til brukeren lukker vinduet
-fortsett = True
-while fortsett:
+spill_avsluttet = False
+while not spill_avsluttet:
 
     # Sjekker om brukeren har lukket vinduet
     for event in pg.event.get():
         if event.type == pg.QUIT:
-            fortsett = False
+            spill_avsluttet = True
 
     # Farger bakgrunnen lyseblå
     vindu.fill("black")
@@ -151,14 +121,12 @@ while fortsett:
         pg.draw.rect(vindu,(255,255,255), pg.Rect(star_x[i],star_y[i], 5, 5,))
         pg.draw.rect(vindu,(255,255,255), pg.Rect(star2_x[i],star2_y[i], 2, 2,))
 
-    # font = pg.font.Font(None, 36)
-    # livstekst = font.render(f"Liv: {livsteller}", True, (255, 255, 255))
-    # vindu.blit(livstekst, (10, 10))
+    livtekst = font.render(f'Liv: {livsteller}', True, (255, 255, 255))
+    vindu.blit(livtekst, (10, 10))
 
 
     # Henter en ordbok med status for alle tastatur-taster
     trykkede_taster = pg.key.get_pressed()
-
 
     # Tegner og flytter ballene
     karakter.tegn(vindu)
@@ -166,9 +134,19 @@ while fortsett:
     romvesen.tegn(vindu)
     romvesen.flytt()
 
+    # Sjekk om livstellingen er 0 og avslutt spillet
+    if livsteller == 0:
+        img = pg.image.load("gameover.png")
+        img = pg.transform.scale(img,(400,400))
+        vindu.blit(img, (VINDU_BREDDE // 2 - 35, VINDU_HOYDE // 2 - 35))
+        pg.display.flip()
+        pg.time.delay(3000)  # Vent i 3 sekunder før du avslutter
+        spill_avsluttet = True
+
     # Oppdaterer alt innholdet i vinduet
     pg.display.flip()
 
 # Avslutter pygame
 pg.quit()
+
 

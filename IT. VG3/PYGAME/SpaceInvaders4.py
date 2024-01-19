@@ -74,22 +74,11 @@ class Romvesen(Sprite):
       self.y += self.fart
 
       # Sjekk om romvesenet har nådd bunnen av vinduet
-      if self.y > VINDU_HOYDE:
-        livsteller -= 1
-        if livsteller == 0:
-          # pg. quit()
-          img = pg.image.load("gameover.png")
-          img = pg.transform.scale(img,(70,70))
-          vindu.blit(img, (self.x,self.y))
+      
 
 
         # Gjenoppstiller romvesenet øverst hvis det går utenfor bunnen
-        self.y = -10
-        self.x = randint(0, VINDU_BREDDE)
-
-        # Sjekk om spilleren har mistet alle livene
-        if livsteller == 0:
-          fortsett = False  # Dette vil avslutte spillet
+        
    
     # def flytt(self):
     #   self.y += self.fart
@@ -99,6 +88,19 @@ class Romvesen(Sprite):
     #     self.y = -10
     #     self.x = randint(0, VINDU_BREDDE)
 
+def vis_game_over(vindu):
+    img = pg.image.load("gameover.png")
+    img = pg.transform.scale(img, (VINDU_BREDDE, VINDU_HOYDE))
+    vindu.blit(img, (0, 0))
+
+# def restart_spill():
+#     # Gjenopprett livsteller og posisjonene til spiller og romvesen
+#     global livsteller
+#     livsteller = 3
+#     karakter.x = 400
+#     karakter.y = 600
+#     romvesen.y = -10
+#     romvesen.x = randint(0, VINDU_BREDDE)
 
 
 star_x = []
@@ -138,8 +140,6 @@ while fortsett:
         if event.type == pg.QUIT:
             fortsett = False
 
-    # Farger bakgrunnen lyseblå
-    vindu.fill("black")
 
     for i in range(50):
         star_y[i] += 2
@@ -168,6 +168,18 @@ while fortsett:
 
     # Oppdaterer alt innholdet i vinduet
     pg.display.flip()
+
+    if Romvesen > VINDU_HOYDE:
+        livsteller -= 1
+        self.y = -10
+        self.x = randint(0, VINDU_BREDDE)
+        if livsteller == 0:
+          # pg. quit()
+          img = pg.image.load("gameover.png")
+          img = pg.transform.scale(img,(70,70))
+          vindu.blit(img, (self.x,self.y))
+
+    
 
 # Avslutter pygame
 pg.quit()
