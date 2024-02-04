@@ -13,6 +13,9 @@ VINDU_BREDDE = 1100
 VINDU_HOYDE  = 750
 vindu = pg.display.set_mode([VINDU_BREDDE, VINDU_HOYDE])
 livsteller = 3
+hit_objs = []
+kills = 0
+cash = 0
 # Legg til dette før hovedloopen
 font = pg.font.Font(None, 36)
 
@@ -27,6 +30,12 @@ class Karakter(Sprite):
     self.radius = radius
     self.farge = farge
     self.vindusobjekt = vindusobjekt
+
+    def shoot(self):
+        x_midpoint = self.x + self.width/2 + 4
+        Skudd.skudd.append(Skudd(self.surf, x_midpoint + 20, self.y, 0, -10, 1, 15, 50))
+        Skudd.skudd.append(Skudd(self.surf, x_midpoint - 30, self.y, 0, -10, 1, 15,  50))
+
 
   
   def tegn(self, vindu):
@@ -81,6 +90,43 @@ class Romvesen(Sprite):
         if livsteller == 0:
           fortsett = False  # Dette vil avslutte spillet
 
+class Skudd:
+    skudd = []  
+    def __init__(self, surf, x, y, v_x, v_y, VINDU_BREDDE, VINDU_HOYDE, ):
+        super().__init__(surf, x, y, VINDU_BREDDE, VINDU_HOYDE)
+        self.v_x = v_x
+        self.v_y = v_y
+        
+
+    def draw(self):
+        py.draw.ellipse(self.surf, "red", py.Rect(self.x, self.y, self.width, self.height))
+
+    def move(self):
+        self.x += self.v_x
+        self.y += self.v_y
+
+        if skudd.y <= 0:
+            Skudd.skudd.remove(skudd)
+
+    def check_target(self, targets):##
+        dead_target = None
+        hit = False
+        for target in targets:##
+            if target.y + target.height >= self.y:
+                if target.x <= self.x <= target.x + target.width or target.x <= self.x + self.width<= target.x + target.width:
+                    target.health -= shot.dmg
+                    self.shots.remove(shot)
+                    if target.health <= 0: 
+                        hit = True
+                        dead_target = target
+                    elif target.dmgd_img != None: 
+                        target.img = target.dmgd_img
+
+        return hit, dead_target
+
+
+
+
 
 star_x = []
 star_y = []
@@ -124,6 +170,28 @@ while not spill_avsluttet:
     livtekst = font.render(f'Liv: {livsteller}', True, (255, 255, 255))
     vindu.blit(livtekst, (10, 10))
 
+    for skudd in Skudd.skudd:
+        for objs in [romvesen]:
+            hit, obj = skudd.check_target(objs)
+            if hit:
+                #explosion frame
+                frame_nr = 0
+                hit_objs.append([obj, frame_nr])
+                objs.remove(obj)
+        
+        shot.draw()
+        shot.move()
+
+    if len(hit_objs) > 0:
+        for obj in hit_objs:
+            obj[0].move()
+            frame_nr = obj[1]
+            if frame_nr < 9:
+                obj[0].explode(explosion_imgs[frame_nr])
+                obj[1] += 1
+            else:
+                hit_objs.remove(obj)
+
 
     # Henter en ordbok med status for alle tastatur-taster
     trykkede_taster = pg.key.get_pressed()
@@ -137,8 +205,9 @@ while not spill_avsluttet:
     # Sjekk om livstellingen er 0 og avslutt spillet
     if livsteller == 0:
         img = pg.image.load("gameover.png")
-        img = pg.transform.scale(img,(400,400))
-        vindu.blit(img, (VINDU_BREDDE // 2 - 35, VINDU_HOYDE // 2 - 35))
+        scalar = 1500
+        img = pg.transform.scale(img,(scalar,scalar))
+        vindu.blit(img, ((VINDU_BREDDE - scalar)/2, (VINDU_HOYDE - scalar)/2))
         pg.display.flip()
         pg.time.delay(3000)  # Vent i 3 sekunder før du avslutter
         spill_avsluttet = True
